@@ -19,6 +19,7 @@ public class Main {
 
             String option = scanner.nextLine();
 
+            // Keeping track of items. printing...
             int i = 1;
             for (InventoryItem item : items) {
                 System.out.println(i + " - " + item.name + ", " + item.category + ". You have, " + item.quantity + ".\n");
@@ -28,6 +29,8 @@ public class Main {
             switch (option) {
 
                 case "1":
+
+                    // asking for field information
 
                     System.out.println("Enter the item name:\n");
                     String name = scanner.nextLine();
@@ -39,23 +42,20 @@ public class Main {
 
                     System.out.println("Which category does the item belong to?");
                     String category = scanner.nextLine();
-
                     InventoryItem.createItem(name, quantity, category);
-
                     items.add(InventoryItem.createItem(name, quantity, category));
 
+                    // printing result
+
                     System.out.println("You now have " + quantity + " " + name + " " + category + "(s).");
+
                     break;
 
                 case "2":
 
-                    System.out.println("\nEnter the number of the item you want to remove");
+                    // removing item from ArrayList
 
-//                    int i = 1;
-//                    for (InventoryItem item : items) {
-//                        System.out.println(i + " - " + item.name + ", " + item.category + ". You have, " + item.quantity + ".\n");
-//                        i++;
-//                    }
+                    System.out.println("\nEnter the number of the item you want to remove");
 
                     int idx = Integer.valueOf(scanner.nextLine());
                     InventoryItem item = items.get(idx - 1);
@@ -65,28 +65,21 @@ public class Main {
 
                 case "3":
 
+                    // using index to identify which item you want to update
+
                     System.out.println("Enter the number of the item you want to update...\n");
+                    String itemString = scanner.nextLine();
+                    int itemUpdate = Integer.parseInt(itemString);
+                    InventoryItem quantityChange = items.get(itemUpdate - 1);
 
-
-//                    int ii = 1;
-//                    for (InventoryItem itemu : items) {
-//                        System.out.println(ii + " - " + itemu.name + ", " + itemu.category + ". You have, " + itemu.quantity + ".\n");
-//                        ii++;
-//                    }
-                    String updateItem = scanner.nextLine();
-                    int updateItemInt = Integer.parseInt(updateItem);
-                    InventoryItem quantityChange = items.get(updateItemInt - 1);
-
-
-//                    String quantityChange = scanner.nextLine();
-//                    int quantityUpdate = Integer.parseInt(quantityChange);
+                    // item identified. specifying new quantity.
 
                     System.out.println("Enter new quantity:");
+                    String itemQuantity = scanner.nextLine();
 
+                    // updating quantity. hopefully storing in ArrayList through loop.
 
-                    String updateQuant = scanner.nextLine();
-                    int updateQuantity = Integer.parseInt(updateQuant);
-
+                    int updateQuantity = Integer.parseInt(itemQuantity);
                     quantityChange.setQuantity(updateQuantity);
 
                     break;
