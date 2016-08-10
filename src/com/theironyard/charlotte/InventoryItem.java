@@ -1,8 +1,5 @@
 package com.theironyard.charlotte;
 
-/**
- * Created by Blake on 8/9/16.
- */
 public class InventoryItem {
     public String name;
     public int quantity;

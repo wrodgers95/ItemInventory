@@ -20,9 +20,10 @@ public class Main {
             String option = scanner.nextLine();
 
             // Keeping track of items. printing...
+
             int i = 1;
             for (InventoryItem item : items) {
-                System.out.println(i + " - " + item.name + ", " + item.category + ". You have, " + item.quantity + ".\n");
+                System.out.println(i + " - " + item.name + " [" + item.category + "], You have, " + item.quantity + ".\n");
                 i++;
             }
 
@@ -80,6 +81,7 @@ public class Main {
                     // updating quantity. hopefully storing in ArrayList through loop.
 
                     int updateQuantity = Integer.parseInt(itemQuantity);
+
                     quantityChange.setQuantity(updateQuantity);
 
                     break;
